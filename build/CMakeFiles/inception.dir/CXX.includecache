@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././include/parse.hpp
+vector
+-
+real_type.hpp
+.././include/real_type.hpp
+
+.././include/real_type.hpp
+
+.././include/units.hpp
+
+/Users/MasrulHuda/Inception/src/main.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+filesystem
+-
+vector
+-
+parse.hpp
+/Users/MasrulHuda/Inception/src/parse.hpp
+
+/Users/MasrulHuda/Inception/src/parse.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+filesystem
+-
+units.hpp
+/Users/MasrulHuda/Inception/src/units.hpp
+parse.hpp
+/Users/MasrulHuda/Inception/src/parse.hpp
+
