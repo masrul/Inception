@@ -153,32 +153,59 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/parse.o: src/parse.cpp.o
+src/molecule_type.o: src/molecule_type.cpp.o
 
-.PHONY : src/parse.o
+.PHONY : src/molecule_type.o
 
 # target to build an object file
-src/parse.cpp.o:
-	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parse.cpp.o
-.PHONY : src/parse.cpp.o
+src/molecule_type.cpp.o:
+	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/molecule_type.cpp.o
+.PHONY : src/molecule_type.cpp.o
 
-src/parse.i: src/parse.cpp.i
+src/molecule_type.i: src/molecule_type.cpp.i
 
-.PHONY : src/parse.i
+.PHONY : src/molecule_type.i
 
 # target to preprocess a source file
-src/parse.cpp.i:
-	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parse.cpp.i
-.PHONY : src/parse.cpp.i
+src/molecule_type.cpp.i:
+	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/molecule_type.cpp.i
+.PHONY : src/molecule_type.cpp.i
 
-src/parse.s: src/parse.cpp.s
+src/molecule_type.s: src/molecule_type.cpp.s
 
-.PHONY : src/parse.s
+.PHONY : src/molecule_type.s
 
 # target to generate assembly for a file
-src/parse.cpp.s:
-	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parse.cpp.s
-.PHONY : src/parse.cpp.s
+src/molecule_type.cpp.s:
+	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/molecule_type.cpp.s
+.PHONY : src/molecule_type.cpp.s
+
+src/parser.o: src/parser.cpp.o
+
+.PHONY : src/parser.o
+
+# target to build an object file
+src/parser.cpp.o:
+	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parser.cpp.o
+.PHONY : src/parser.cpp.o
+
+src/parser.i: src/parser.cpp.i
+
+.PHONY : src/parser.i
+
+# target to preprocess a source file
+src/parser.cpp.i:
+	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parser.cpp.i
+.PHONY : src/parser.cpp.i
+
+src/parser.s: src/parser.cpp.s
+
+.PHONY : src/parser.s
+
+# target to generate assembly for a file
+src/parser.cpp.s:
+	$(MAKE) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parser.cpp.s
+.PHONY : src/parser.cpp.s
 
 # Help Target
 help:
@@ -192,9 +219,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/parse.o"
-	@echo "... src/parse.i"
-	@echo "... src/parse.s"
+	@echo "... src/molecule_type.o"
+	@echo "... src/molecule_type.i"
+	@echo "... src/molecule_type.s"
+	@echo "... src/parser.o"
+	@echo "... src/parser.i"
+	@echo "... src/parser.s"
 .PHONY : help
 
 

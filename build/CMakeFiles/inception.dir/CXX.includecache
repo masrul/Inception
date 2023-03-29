@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-.././include/parse.hpp
+.././include/parser.hpp
 vector
 -
 real_type.hpp
@@ -16,21 +16,7 @@ real_type.hpp
 
 .././include/units.hpp
 
-/Users/MasrulHuda/Inception/src/main.cpp
-iostream
--
-fstream
--
-sstream
--
-filesystem
--
-vector
--
-parse.hpp
-/Users/MasrulHuda/Inception/src/parse.hpp
-
-/Users/MasrulHuda/Inception/src/parse.cpp
+/Users/MasrulHuda/Inception/src/parser.cpp
 iostream
 -
 fstream
@@ -41,6 +27,6 @@ filesystem
 -
 units.hpp
 /Users/MasrulHuda/Inception/src/units.hpp
-parse.hpp
-/Users/MasrulHuda/Inception/src/parse.hpp
+parser.hpp
+/Users/MasrulHuda/Inception/src/parser.hpp
 

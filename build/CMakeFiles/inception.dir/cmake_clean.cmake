@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/inception.dir/src/main.cpp.o"
-  "CMakeFiles/inception.dir/src/parse.cpp.o"
+  "CMakeFiles/inception.dir/src/molecule_type.cpp.o"
+  "CMakeFiles/inception.dir/src/parser.cpp.o"
   "inception.pdb"
   "inception"
 )

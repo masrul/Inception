@@ -73,32 +73,47 @@ CMakeFiles/inception.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/main.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MasrulHuda/Inception/src/main.cpp -o CMakeFiles/inception.dir/src/main.cpp.s
 
-CMakeFiles/inception.dir/src/parse.cpp.o: CMakeFiles/inception.dir/flags.make
-CMakeFiles/inception.dir/src/parse.cpp.o: ../src/parse.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MasrulHuda/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/inception.dir/src/parse.cpp.o"
-	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/inception.dir/src/parse.cpp.o -c /Users/MasrulHuda/Inception/src/parse.cpp
+CMakeFiles/inception.dir/src/molecule_type.cpp.o: CMakeFiles/inception.dir/flags.make
+CMakeFiles/inception.dir/src/molecule_type.cpp.o: ../src/molecule_type.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MasrulHuda/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/inception.dir/src/molecule_type.cpp.o"
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/inception.dir/src/molecule_type.cpp.o -c /Users/MasrulHuda/Inception/src/molecule_type.cpp
 
-CMakeFiles/inception.dir/src/parse.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/parse.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MasrulHuda/Inception/src/parse.cpp > CMakeFiles/inception.dir/src/parse.cpp.i
+CMakeFiles/inception.dir/src/molecule_type.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/molecule_type.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MasrulHuda/Inception/src/molecule_type.cpp > CMakeFiles/inception.dir/src/molecule_type.cpp.i
 
-CMakeFiles/inception.dir/src/parse.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/parse.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MasrulHuda/Inception/src/parse.cpp -o CMakeFiles/inception.dir/src/parse.cpp.s
+CMakeFiles/inception.dir/src/molecule_type.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/molecule_type.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MasrulHuda/Inception/src/molecule_type.cpp -o CMakeFiles/inception.dir/src/molecule_type.cpp.s
+
+CMakeFiles/inception.dir/src/parser.cpp.o: CMakeFiles/inception.dir/flags.make
+CMakeFiles/inception.dir/src/parser.cpp.o: ../src/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MasrulHuda/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/inception.dir/src/parser.cpp.o"
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/inception.dir/src/parser.cpp.o -c /Users/MasrulHuda/Inception/src/parser.cpp
+
+CMakeFiles/inception.dir/src/parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/parser.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MasrulHuda/Inception/src/parser.cpp > CMakeFiles/inception.dir/src/parser.cpp.i
+
+CMakeFiles/inception.dir/src/parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/parser.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MasrulHuda/Inception/src/parser.cpp -o CMakeFiles/inception.dir/src/parser.cpp.s
 
 # Object files for target inception
 inception_OBJECTS = \
 "CMakeFiles/inception.dir/src/main.cpp.o" \
-"CMakeFiles/inception.dir/src/parse.cpp.o"
+"CMakeFiles/inception.dir/src/molecule_type.cpp.o" \
+"CMakeFiles/inception.dir/src/parser.cpp.o"
 
 # External object files for target inception
 inception_EXTERNAL_OBJECTS =
 
 inception: CMakeFiles/inception.dir/src/main.cpp.o
-inception: CMakeFiles/inception.dir/src/parse.cpp.o
+inception: CMakeFiles/inception.dir/src/molecule_type.cpp.o
+inception: CMakeFiles/inception.dir/src/parser.cpp.o
 inception: CMakeFiles/inception.dir/build.make
 inception: CMakeFiles/inception.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/MasrulHuda/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable inception"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/MasrulHuda/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable inception"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inception.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
