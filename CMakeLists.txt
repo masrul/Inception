@@ -22,6 +22,6 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 endif()
 
 file(GLOB SRC "src/*.cpp")
-include_directories("./include/")
+include_directories("./src/")
 add_executable(${PROJECT_NAME}  ${SRC})
 
