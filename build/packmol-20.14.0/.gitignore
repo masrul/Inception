@@ -1,0 +1,9 @@
+build/
+CMakeFiles/
+*.mod
+*.o
+*.swp
+packmol
+CMakeCache.txt
+cmake_install.cmake
+tmpfile.txt

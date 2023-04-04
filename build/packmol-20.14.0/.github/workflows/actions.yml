@@ -1,0 +1,51 @@
+name: actions
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+      # windows-latest is disabled due to cmake failure:
+      # https://github.com/awvwgk/setup-fortran/issues/6
+        os: [ubuntu-22.04, macos-12]
+        gcc_version: [11, 12]
+        compiler: ['make', 'cmake']
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: awvwgk/setup-fortran@main
+      id: setup-fortran
+      with:
+        compiler: gcc
+        version: ${{ matrix.gcc_version }}
+
+    - name: Compile using make
+      if: matrix.compiler == 'make'
+      run: |
+        ./configure
+        make
+      shell: bash
+
+    - name: Compile using cmake
+      if: matrix.compiler == 'cmake'
+      run: |
+        cmake ./ && cmake --build ./
+      shell: bash
+
+    - name: Run
+      run: |
+          cd example
+          ../packmol < water_box.inp
+          cd ..
+      shell: bash

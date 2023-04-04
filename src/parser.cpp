@@ -171,5 +171,4 @@ void Parser_t::print(){
 
 
 Parser_t::~Parser_t(){
-    std::cout<<"destroying\n";
 }

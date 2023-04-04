@@ -204,6 +204,30 @@ src/math_util.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/math_util.cpp.s
 .PHONY : src/math_util.cpp.s
 
+src/molecule_tracker.o: src/molecule_tracker.cpp.o
+.PHONY : src/molecule_tracker.o
+
+# target to build an object file
+src/molecule_tracker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/molecule_tracker.cpp.o
+.PHONY : src/molecule_tracker.cpp.o
+
+src/molecule_tracker.i: src/molecule_tracker.cpp.i
+.PHONY : src/molecule_tracker.i
+
+# target to preprocess a source file
+src/molecule_tracker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/molecule_tracker.cpp.i
+.PHONY : src/molecule_tracker.cpp.i
+
+src/molecule_tracker.s: src/molecule_tracker.cpp.s
+.PHONY : src/molecule_tracker.s
+
+# target to generate assembly for a file
+src/molecule_tracker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/molecule_tracker.cpp.s
+.PHONY : src/molecule_tracker.cpp.s
+
 src/molecule_type.o: src/molecule_type.cpp.o
 .PHONY : src/molecule_type.o
 
@@ -270,6 +294,9 @@ help:
 	@echo "... src/math_util.o"
 	@echo "... src/math_util.i"
 	@echo "... src/math_util.s"
+	@echo "... src/molecule_tracker.o"
+	@echo "... src/molecule_tracker.i"
+	@echo "... src/molecule_tracker.s"
 	@echo "... src/molecule_type.o"
 	@echo "... src/molecule_type.i"
 	@echo "... src/molecule_type.s"

@@ -8,15 +8,12 @@
 
 
 int main(){
+    OBox_t box{200.0,200.0,200.0,3.0};
 
-    /* Parser prs{"2-methyl-propanol.mol"}; */
-    /* prs.print(); */
-    /* MoleculeType_t mtype{"2-methyl-propanol.xyz"}; */
-
-    OBox_t box{100.0,100.0,100.0};
-
-    box.add("2-methyl-propanol.xyz",100);
-    box.add("benzene.xyz",100);
+    /* box.add("2-methyl-propanol.xyz",1000); */
+    box.add("fmoc.pdb",2000);
+    /* box.add("benzene.xyz",1200); */
     box.pack();
+    box.write("pp.xyz");
     return 0; 
 }
