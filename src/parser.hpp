@@ -4,6 +4,7 @@
 
 #include <vector>
 #include "real_type.hpp"
+#include <memory>
 
 
 class Parser_t {
@@ -17,7 +18,8 @@ public:
     std::vector<real_t> m_x;  
     std::vector<real_t> m_y;  
     std::vector<real_t> m_z;  
-    real_t* m_pos;
+    /* real_t* m_pos; */
+    std::unique_ptr<real_t[]>m_pos;
     void print();
 
 private:

@@ -4,6 +4,9 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <cmath>
+#include "progressbar.hpp"
+#include <memory>
 
 OBox_t::OBox_t(real_t lx, real_t ly, real_t lz,real_t rcut): 
     m_lx{lx},
@@ -17,66 +20,105 @@ OBox_t::OBox_t(real_t lx, real_t ly, real_t lz,real_t rcut):
     m_rcut2 = m_rcut*m_rcut;
     m_nmol_types = 0; 
     m_natoms = 0;
+    m_max_trails = 1000;
 }
 
-
 void OBox_t::add(std::string file_name, size_t nmols){
-    m_mol_types.emplace_back(file_name);
-    m_mol_types[m_nmol_types].m_nmols = nmols; 
+    m_mol_types.emplace_back(file_name,nmols);
+    
+    // set bounds 
+    auto& mol_type = m_mol_types[m_nmol_types];
+    mol_type.m_xmin = 0;
+    mol_type.m_xmax = m_lx;
+    mol_type.m_ymin = 0;
+    mol_type.m_ymax = m_ly;
+    mol_type.m_zmin = 0;
+    mol_type.m_zmax = m_lz;
+
     ++m_nmol_types;
+}
+
+void OBox_t::add(std::string file_name, size_t nmols,real_t* bounds){
+    m_mol_types.emplace_back(file_name,nmols);
+    
+    // set bounds 
+    auto& mol_type = m_mol_types[m_nmol_types];
+    mol_type.m_xmin = bounds[0];
+    mol_type.m_xmax = bounds[1];
+    mol_type.m_ymin = bounds[2];
+    mol_type.m_ymax = bounds[3];
+    mol_type.m_zmin = bounds[4];
+    mol_type.m_zmax = bounds[5];
+
+    ++m_nmol_types;
+
 }
 
 void OBox_t::pack(){
 
     // Find total atoms
+    size_t tmols=0;
     for (auto const& mol_type : m_mol_types){
         m_natoms += (mol_type.m_natoms * mol_type.m_nmols);
+        std::cout<<mol_type.m_natoms<<" "<<mol_type.m_nmols<<"\n";
+        tmols += mol_type.m_nmols;
     }
+    std::cout<<"natoms: "<<m_natoms<<"\n";
 
     // Allocate memroy for position 
-    m_pos = new real_t[m_natoms*3];
+    m_pos.reset(new real_t[m_natoms*3]);
 
     // Loop over mol_types and pack 
     size_t ninserts_atom = 0; 
     srand(time(0));
+    real_t posx,posy,posz;
+    std::cout<<"Inception::packing\n";
+    progressbar bar(tmols);
+    bar.set_todo_char(" ");
+    bar.set_done_char("█");
+    bar.set_opening_bracket_char("[");
+    bar.set_closing_bracket_char("]");
     for (auto& mol_type : m_mol_types){
-        size_t ninserts_mol = 0; 
+        for (auto i=0u; i< mol_type.m_nmols;++i){
+            size_t ntrails=0;
+            bool success = false;
+            while (ntrails < m_max_trails){
+                // Generate random position 
+                mol_type.get_rand_location(posx,posy,posz);
 
-        size_t ntrys=0;
-        while (ninserts_mol < mol_type.m_nmols){
-            ++ntrys;
-            // Generate random position 
-            auto rand0 = ((real_t) rand() / (RAND_MAX));
-            auto rand1 = ((real_t) rand() / (RAND_MAX));
-            auto rand2 = ((real_t) rand() / (RAND_MAX));
-            
-            real_t posx = m_lx*rand0;
-            real_t posy = m_lx*rand1;
-            real_t posz = m_lx*rand2; 
+                // Get random struct from precalculated rotation
+                mol_type.get_rand_struct(); 
 
-            // Get random struct from precalculated rotation
-            mol_type.get_rand_struct(); 
+                // Move to posx,posy,posz 
+                mol_type.move_to(posx,posy,posz);
 
-            // Move to posx,posy,posz 
-            mol_type.move_to(posx,posy,posz);
+                // check overlap 
+                auto overlap = check_overlap(mol_type); 
 
-            // check overlap 
-            auto overlap = check_overlap(mol_type); 
+                if (!overlap){
+                    //copy to global pos 
+                    mol_type.copy_to(&m_pos[3*ninserts_atom]);
+                    m_mol_trackers.emplace_back(mol_type,&m_pos[3*ninserts_atom]);
+                    ninserts_atom += mol_type.m_natoms;
+                    success = true;
+                    bar.update();
+                    break;
+                }
+                ++ntrails;
+            }
 
-            if (!overlap){
-                //copy to global pos 
-                mol_type.copy_to(&m_pos[3*ninserts_atom]);
-                m_mol_trackers.emplace_back(mol_type,&m_pos[3*ninserts_atom]);
-                ninserts_atom += mol_type.m_natoms;
-                ++ninserts_mol;
-                std::cout<<"Inserted: "<<ninserts_mol<< " nTrys: "<<ntrys<<"\n";
-                ntrys=0;
+            if (success == false){
+                std::cout<< "\nCan not pack, increase num_trails or box size!\n";
+                std::cout<< "Quiting ...\n";
+                std::terminate();
             }
         }
     }
 
+    std::cout<<"\n"; // celar progressbar
+
     // Sanity check 
-    /* sanity_check(); */
+    sanity_check();
 }
 
 
@@ -161,9 +203,17 @@ void OBox_t::sanity_check(){
     
     const auto nmols = m_mol_trackers.size(); 
 
+    std::cout<<"\nInception::sanity_check\n";
+    progressbar bar(nmols-1);
+    bar.set_todo_char(" ");
+    bar.set_done_char("█");
+    bar.set_opening_bracket_char("[");
+    bar.set_closing_bracket_char("]");
+
     real_t dx,dy,dz,dist2;
     real_t rmin = std::numeric_limits<real_t>::max(); 
     for (auto i = 0; i<nmols-1;++i){
+        bar.update();
         const auto& i_natoms = m_mol_trackers[i].m_mol_type.m_natoms;
         const auto& i_pos = m_mol_trackers[i].m_pos;
 
@@ -178,19 +228,16 @@ void OBox_t::sanity_check(){
                     dz = i_pos[3*ii + 2] - j_pos[3*jj + 2];
                     apply_pbc(dx,dy,dz);
                     dist2 = dx*dx + dy*dy + dz*dz; 
-
-                    if (dist2 < rmin){
-                        rmin = dist2;
-                    }
+                    if (dist2 < rmin) rmin = dist2;
                 }
             }
         }
     }
 
     if (sqrt(rmin) < m_rcut){
-        std::cout<<"Sanity check failed with rmin:"<< sqrt(rmin)<<"\n";
+        std::cout<<"\nSanity check failed with rmin:"<< sqrt(rmin)<<"\n";
     }
     else { 
-        std::cout<<"Sanity check passed!\n";
+        std::cout<<"\nSanity check passed!\n";
     }
 }

@@ -39,7 +39,8 @@ void Parser_t::parse_pdb(const std::string &file_name){
     }
 
     // Allocate 
-    m_pos = new real_t[m_natoms*3];
+    /* m_pos = new real_t[m_natoms*3]; */
+    m_pos.reset(new real_t[m_natoms*3]);
     
     // Read 
     file.clear();
@@ -66,6 +67,8 @@ void Parser_t::parse_pdb(const std::string &file_name){
         }
     }
 
+    std::cout<<"From  parser, natoms:"<<m_natoms<<"\n";
+
     file.close();
 }
 
@@ -77,6 +80,7 @@ void Parser_t::parse_gro(const std::string &file_name){
     getline(file,line); 
     std::istringstream input(line); 
     input >> m_natoms; 
+    m_pos.reset(new real_t[m_natoms*3]);
 
     real_t xi,yi,zi;
     for (auto i=0u; i<m_natoms; ++i){
@@ -107,7 +111,7 @@ void Parser_t::parse_xyz(const std::string &file_name){
 
     std::string symbol_i; 
     real_t xi,yi,zi;
-    m_pos = new real_t[m_natoms*3];
+    m_pos.reset(new real_t[m_natoms*3]);
 
     for (auto i=0u; i<m_natoms; ++i){
         getline(file,line); 
@@ -136,7 +140,7 @@ void Parser_t::parse_mol(const std::string &file_name){
     getline(file,line); 
     std::istringstream input(line); 
     input >> m_natoms; 
-    m_pos = new real_t[m_natoms*3];
+    m_pos.reset(new real_t[m_natoms*3]);
 
     std::string symbol_i; 
     real_t xi,yi,zi;

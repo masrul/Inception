@@ -7,6 +7,7 @@
 #include "molecule_tracker.hpp"
 #include <vector>
 #include <string>
+#include <memory>
 
 class OBox_t {
 public:
@@ -14,13 +15,16 @@ public:
     real_t m_lx;
     real_t m_ly;
     real_t m_lz; 
-    real_t* m_pos;
+    /* real_t* m_pos; */
+    std::shared_ptr<real_t[]>m_pos;
     size_t m_natoms;
     real_t m_rcut; 
+    size_t m_max_trails;
 
     // Methods 
     OBox_t(real_t,real_t,real_t,real_t);
-    void add(std::string,size_t);
+    void add(std::string, size_t);
+    void add(std::string, size_t,real_t*);
     void pack();
     void write(std::string);
 

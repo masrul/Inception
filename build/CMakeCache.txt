@@ -27,6 +27,17 @@ CMAKE_BUILD_TYPE:STRING=
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=/opt/homebrew/bin/g++-11
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_CXX_COMPILER_AR:FILEPATH=/opt/homebrew/bin/gcc-ar-11
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/opt/homebrew/bin/gcc-ranlib-11
+
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
 
@@ -238,6 +249,12 @@ CMAKE_COMMAND:INTERNAL=/opt/homebrew/Cellar/cmake/3.26.2/bin/cmake
 CMAKE_CPACK_COMMAND:INTERNAL=/opt/homebrew/Cellar/cmake/3.26.2/bin/cpack
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/opt/homebrew/Cellar/cmake/3.26.2/bin/ctest
+//ADVANCED property for variable: CMAKE_CXX_COMPILER
+CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
+CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
+CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
 CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
