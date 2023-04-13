@@ -1,0 +1,3 @@
+/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles/inception.dir
+/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles/edit_cache.dir
+/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles/rebuild_cache.dir
