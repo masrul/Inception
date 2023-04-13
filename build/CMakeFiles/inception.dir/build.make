@@ -72,111 +72,143 @@ include CMakeFiles/inception.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/inception.dir/flags.make
 
+CMakeFiles/inception.dir/src/abort.cpp.o: CMakeFiles/inception.dir/flags.make
+CMakeFiles/inception.dir/src/abort.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/abort.cpp
+CMakeFiles/inception.dir/src/abort.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/inception.dir/src/abort.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/abort.cpp.o -MF CMakeFiles/inception.dir/src/abort.cpp.o.d -o CMakeFiles/inception.dir/src/abort.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/abort.cpp
+
+CMakeFiles/inception.dir/src/abort.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/abort.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/abort.cpp > CMakeFiles/inception.dir/src/abort.cpp.i
+
+CMakeFiles/inception.dir/src/abort.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/abort.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/abort.cpp -o CMakeFiles/inception.dir/src/abort.cpp.s
+
 CMakeFiles/inception.dir/src/box.cpp.o: CMakeFiles/inception.dir/flags.make
 CMakeFiles/inception.dir/src/box.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/box.cpp
 CMakeFiles/inception.dir/src/box.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/inception.dir/src/box.cpp.o"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/box.cpp.o -MF CMakeFiles/inception.dir/src/box.cpp.o.d -o CMakeFiles/inception.dir/src/box.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/box.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/inception.dir/src/box.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/box.cpp.o -MF CMakeFiles/inception.dir/src/box.cpp.o.d -o CMakeFiles/inception.dir/src/box.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/box.cpp
 
 CMakeFiles/inception.dir/src/box.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/box.cpp.i"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/box.cpp > CMakeFiles/inception.dir/src/box.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/box.cpp > CMakeFiles/inception.dir/src/box.cpp.i
 
 CMakeFiles/inception.dir/src/box.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/box.cpp.s"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/box.cpp -o CMakeFiles/inception.dir/src/box.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/box.cpp -o CMakeFiles/inception.dir/src/box.cpp.s
 
 CMakeFiles/inception.dir/src/main.cpp.o: CMakeFiles/inception.dir/flags.make
 CMakeFiles/inception.dir/src/main.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/main.cpp
 CMakeFiles/inception.dir/src/main.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/inception.dir/src/main.cpp.o"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/main.cpp.o -MF CMakeFiles/inception.dir/src/main.cpp.o.d -o CMakeFiles/inception.dir/src/main.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/inception.dir/src/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/main.cpp.o -MF CMakeFiles/inception.dir/src/main.cpp.o.d -o CMakeFiles/inception.dir/src/main.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/main.cpp
 
 CMakeFiles/inception.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/main.cpp.i"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/main.cpp > CMakeFiles/inception.dir/src/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/main.cpp > CMakeFiles/inception.dir/src/main.cpp.i
 
 CMakeFiles/inception.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/main.cpp.s"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/main.cpp -o CMakeFiles/inception.dir/src/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/main.cpp -o CMakeFiles/inception.dir/src/main.cpp.s
 
 CMakeFiles/inception.dir/src/math_util.cpp.o: CMakeFiles/inception.dir/flags.make
 CMakeFiles/inception.dir/src/math_util.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp
 CMakeFiles/inception.dir/src/math_util.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/inception.dir/src/math_util.cpp.o"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/math_util.cpp.o -MF CMakeFiles/inception.dir/src/math_util.cpp.o.d -o CMakeFiles/inception.dir/src/math_util.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/inception.dir/src/math_util.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/math_util.cpp.o -MF CMakeFiles/inception.dir/src/math_util.cpp.o.d -o CMakeFiles/inception.dir/src/math_util.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp
 
 CMakeFiles/inception.dir/src/math_util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/math_util.cpp.i"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp > CMakeFiles/inception.dir/src/math_util.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp > CMakeFiles/inception.dir/src/math_util.cpp.i
 
 CMakeFiles/inception.dir/src/math_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/math_util.cpp.s"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp -o CMakeFiles/inception.dir/src/math_util.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp -o CMakeFiles/inception.dir/src/math_util.cpp.s
 
 CMakeFiles/inception.dir/src/molecule_tracker.cpp.o: CMakeFiles/inception.dir/flags.make
 CMakeFiles/inception.dir/src/molecule_tracker.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp
 CMakeFiles/inception.dir/src/molecule_tracker.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/inception.dir/src/molecule_tracker.cpp.o"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/molecule_tracker.cpp.o -MF CMakeFiles/inception.dir/src/molecule_tracker.cpp.o.d -o CMakeFiles/inception.dir/src/molecule_tracker.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/inception.dir/src/molecule_tracker.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/molecule_tracker.cpp.o -MF CMakeFiles/inception.dir/src/molecule_tracker.cpp.o.d -o CMakeFiles/inception.dir/src/molecule_tracker.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp
 
 CMakeFiles/inception.dir/src/molecule_tracker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/molecule_tracker.cpp.i"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp > CMakeFiles/inception.dir/src/molecule_tracker.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp > CMakeFiles/inception.dir/src/molecule_tracker.cpp.i
 
 CMakeFiles/inception.dir/src/molecule_tracker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/molecule_tracker.cpp.s"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp -o CMakeFiles/inception.dir/src/molecule_tracker.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp -o CMakeFiles/inception.dir/src/molecule_tracker.cpp.s
 
 CMakeFiles/inception.dir/src/molecule_type.cpp.o: CMakeFiles/inception.dir/flags.make
 CMakeFiles/inception.dir/src/molecule_type.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp
 CMakeFiles/inception.dir/src/molecule_type.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/inception.dir/src/molecule_type.cpp.o"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/molecule_type.cpp.o -MF CMakeFiles/inception.dir/src/molecule_type.cpp.o.d -o CMakeFiles/inception.dir/src/molecule_type.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/inception.dir/src/molecule_type.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/molecule_type.cpp.o -MF CMakeFiles/inception.dir/src/molecule_type.cpp.o.d -o CMakeFiles/inception.dir/src/molecule_type.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp
 
 CMakeFiles/inception.dir/src/molecule_type.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/molecule_type.cpp.i"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp > CMakeFiles/inception.dir/src/molecule_type.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp > CMakeFiles/inception.dir/src/molecule_type.cpp.i
 
 CMakeFiles/inception.dir/src/molecule_type.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/molecule_type.cpp.s"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp -o CMakeFiles/inception.dir/src/molecule_type.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp -o CMakeFiles/inception.dir/src/molecule_type.cpp.s
 
 CMakeFiles/inception.dir/src/parser.cpp.o: CMakeFiles/inception.dir/flags.make
 CMakeFiles/inception.dir/src/parser.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp
 CMakeFiles/inception.dir/src/parser.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/inception.dir/src/parser.cpp.o"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/parser.cpp.o -MF CMakeFiles/inception.dir/src/parser.cpp.o.d -o CMakeFiles/inception.dir/src/parser.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/inception.dir/src/parser.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/parser.cpp.o -MF CMakeFiles/inception.dir/src/parser.cpp.o.d -o CMakeFiles/inception.dir/src/parser.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp
 
 CMakeFiles/inception.dir/src/parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/parser.cpp.i"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp > CMakeFiles/inception.dir/src/parser.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp > CMakeFiles/inception.dir/src/parser.cpp.i
 
 CMakeFiles/inception.dir/src/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/parser.cpp.s"
-	/opt/homebrew/bin/g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp -o CMakeFiles/inception.dir/src/parser.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp -o CMakeFiles/inception.dir/src/parser.cpp.s
+
+CMakeFiles/inception.dir/src/writer.cpp.o: CMakeFiles/inception.dir/flags.make
+CMakeFiles/inception.dir/src/writer.cpp.o: /Users/masrulhuda/Config-Mac/Inception/src/writer.cpp
+CMakeFiles/inception.dir/src/writer.cpp.o: CMakeFiles/inception.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/inception.dir/src/writer.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inception.dir/src/writer.cpp.o -MF CMakeFiles/inception.dir/src/writer.cpp.o.d -o CMakeFiles/inception.dir/src/writer.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/writer.cpp
+
+CMakeFiles/inception.dir/src/writer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inception.dir/src/writer.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/masrulhuda/Config-Mac/Inception/src/writer.cpp > CMakeFiles/inception.dir/src/writer.cpp.i
+
+CMakeFiles/inception.dir/src/writer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inception.dir/src/writer.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/masrulhuda/Config-Mac/Inception/src/writer.cpp -o CMakeFiles/inception.dir/src/writer.cpp.s
 
 # Object files for target inception
 inception_OBJECTS = \
+"CMakeFiles/inception.dir/src/abort.cpp.o" \
 "CMakeFiles/inception.dir/src/box.cpp.o" \
 "CMakeFiles/inception.dir/src/main.cpp.o" \
 "CMakeFiles/inception.dir/src/math_util.cpp.o" \
 "CMakeFiles/inception.dir/src/molecule_tracker.cpp.o" \
 "CMakeFiles/inception.dir/src/molecule_type.cpp.o" \
-"CMakeFiles/inception.dir/src/parser.cpp.o"
+"CMakeFiles/inception.dir/src/parser.cpp.o" \
+"CMakeFiles/inception.dir/src/writer.cpp.o"
 
 # External object files for target inception
 inception_EXTERNAL_OBJECTS =
 
+inception: CMakeFiles/inception.dir/src/abort.cpp.o
 inception: CMakeFiles/inception.dir/src/box.cpp.o
 inception: CMakeFiles/inception.dir/src/main.cpp.o
 inception: CMakeFiles/inception.dir/src/math_util.cpp.o
 inception: CMakeFiles/inception.dir/src/molecule_tracker.cpp.o
 inception: CMakeFiles/inception.dir/src/molecule_type.cpp.o
 inception: CMakeFiles/inception.dir/src/parser.cpp.o
+inception: CMakeFiles/inception.dir/src/writer.cpp.o
 inception: CMakeFiles/inception.dir/build.make
 inception: CMakeFiles/inception.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable inception"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/masrulhuda/Config-Mac/Inception/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable inception"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inception.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

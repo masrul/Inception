@@ -13,31 +13,30 @@
 
 
 MoleculeType_t::MoleculeType_t(std::string file_name,size_t nmols) {
-    Parser_t prs{file_name};
 
     // set number of molecules to be inserted
-    m_nmols= nmols;
-    m_nrand_structs = nmols;
+    m_nmols = nmols;
+    m_nrand_structs = nmols; //nmols;
     
     // Copy trivial stuffs 
+    const Parser_t prs{file_name};
     m_natoms = prs.m_natoms;
     m_symbols = prs.m_symbols; 
     m_resnames = prs.m_resnames;
+    m_resids = prs.m_resids;
 
-
-    std::vector<std::string> m_symbols;
-    std::vector<std::string> m_resnames;
-    std::vector<size_t> m_resids; 
+    
+    // Allocate memory for iterator
+    m_pos.reset(new real_t[3*m_natoms]);
 
     find_center_atom(prs.m_pos);
     create_rand_structs(prs.m_pos);
-    write();
 }
 
-void MoleculeType_t::create_rand_structs(std::unique_ptr<real_t[]>& pos){
+void MoleculeType_t::create_rand_structs(const std::unique_ptr<real_t[]>& pos){
 
     // Randomly rotate and save 
-    m_all_pos.reset(new real_t[m_nrand_structs*m_natoms*3]);
+    m_all_pos.reset(new real_t[3*m_natoms*m_nrand_structs]);
     std::shared_ptr<real_t[]> rot_mat(new float[9]);
     for (auto i=0u; i<m_nrand_structs;++i){
         auto r0 = ((real_t) rand() / (RAND_MAX));
@@ -50,11 +49,10 @@ void MoleculeType_t::create_rand_structs(std::unique_ptr<real_t[]>& pos){
         const auto& local_pos = &m_all_pos[m_natoms*3*i]; 
         MathUtil::get_rot_mat(alpha,beta,gamma,rot_mat.get());
         MathUtil::matmul(pos.get(),rot_mat.get(),local_pos,m_natoms,3,3);
-        
     }
 }
 
-void MoleculeType_t::find_center_atom(std::unique_ptr<real_t[]>& pos){
+void MoleculeType_t::find_center_atom(const std::unique_ptr<real_t[]>& pos){
     // Find center  
     real_t xcom = 0.0f;
     real_t ycom = 0.0f;
@@ -111,8 +109,8 @@ void MoleculeType_t::find_center_atom(std::unique_ptr<real_t[]>& pos){
 void MoleculeType_t::get_rand_struct(){
     auto r = ((real_t) rand() / (RAND_MAX));
     size_t rand_idx = std::round((m_nrand_structs-1)*r); 
-
-    std::memcpy(&m_pos[0],&m_all_pos[m_natoms*3*rand_idx],3*m_natoms*sizeof(real_t));
+    
+    std::memcpy(&m_pos[0],&m_all_pos[3*m_natoms*rand_idx],3*m_natoms*sizeof(real_t));
 }
 
 
@@ -129,24 +127,6 @@ void MoleculeType_t::get_rand_location(real_t& posx, real_t& posy, real_t& posz)
 
 
 
-void MoleculeType_t::write(){
-    // Write for test
-    std::ofstream file{"all.xyz"};
-
-    for (auto i=0u; i<m_nrand_structs;++i){
-        m_pos = &m_all_pos[m_natoms*3*i];
-        
-        file<<m_natoms<<"\n"<<"\n";
-        for (auto j=0u;j<m_natoms;++j){
-            file
-                <<m_symbols[j]<<" "
-                <<m_pos[3*j] << " "
-                <<m_pos[3*j+1] << " "
-                <<m_pos[3*j+2] << "\n";
-        }
-    }
-    file.close();
-}
 
 void MoleculeType_t::move_to(real_t dx, real_t dy, real_t dz){
     for (auto i=0u; i<m_natoms;++i){
@@ -157,6 +137,6 @@ void MoleculeType_t::move_to(real_t dx, real_t dy, real_t dz){
 }
 
 void MoleculeType_t::copy_to(real_t* pos){
-    std::memcpy(pos,m_pos,3*m_natoms*sizeof(real_t));
+    std::memcpy(pos,&m_pos[0],3*m_natoms*sizeof(real_t));
 }
 

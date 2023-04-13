@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/inception.dir/src/abort.cpp.o"
+  "CMakeFiles/inception.dir/src/abort.cpp.o.d"
   "CMakeFiles/inception.dir/src/box.cpp.o"
   "CMakeFiles/inception.dir/src/box.cpp.o.d"
   "CMakeFiles/inception.dir/src/main.cpp.o"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/inception.dir/src/molecule_type.cpp.o.d"
   "CMakeFiles/inception.dir/src/parser.cpp.o"
   "CMakeFiles/inception.dir/src/parser.cpp.o.d"
+  "CMakeFiles/inception.dir/src/writer.cpp.o"
+  "CMakeFiles/inception.dir/src/writer.cpp.o.d"
   "inception"
   "inception.pdb"
 )

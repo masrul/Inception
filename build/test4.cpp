@@ -27,10 +27,11 @@ int main()
     std::shared_ptr<float[]> d0(data, &data[3]);
     std::shared_ptr<float[]> d1(data, &data[9]);
     std::shared_ptr<float[]> d2(data, &data[1]);
+    /* float* d3 = &data[4]; */
 
     std::cout<<data.use_count()<<"\n";
 
-    test(data);
+    /* test(data); */
 
 
 

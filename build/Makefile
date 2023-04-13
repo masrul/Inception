@@ -132,6 +132,30 @@ inception/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/build
 .PHONY : inception/fast
 
+src/abort.o: src/abort.cpp.o
+.PHONY : src/abort.o
+
+# target to build an object file
+src/abort.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/abort.cpp.o
+.PHONY : src/abort.cpp.o
+
+src/abort.i: src/abort.cpp.i
+.PHONY : src/abort.i
+
+# target to preprocess a source file
+src/abort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/abort.cpp.i
+.PHONY : src/abort.cpp.i
+
+src/abort.s: src/abort.cpp.s
+.PHONY : src/abort.s
+
+# target to generate assembly for a file
+src/abort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/abort.cpp.s
+.PHONY : src/abort.cpp.s
+
 src/box.o: src/box.cpp.o
 .PHONY : src/box.o
 
@@ -276,6 +300,30 @@ src/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/parser.cpp.s
 .PHONY : src/parser.cpp.s
 
+src/writer.o: src/writer.cpp.o
+.PHONY : src/writer.o
+
+# target to build an object file
+src/writer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/writer.cpp.o
+.PHONY : src/writer.cpp.o
+
+src/writer.i: src/writer.cpp.i
+.PHONY : src/writer.i
+
+# target to preprocess a source file
+src/writer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/writer.cpp.i
+.PHONY : src/writer.cpp.i
+
+src/writer.s: src/writer.cpp.s
+.PHONY : src/writer.s
+
+# target to generate assembly for a file
+src/writer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inception.dir/build.make CMakeFiles/inception.dir/src/writer.cpp.s
+.PHONY : src/writer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -285,6 +333,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... inception"
+	@echo "... src/abort.o"
+	@echo "... src/abort.i"
+	@echo "... src/abort.s"
 	@echo "... src/box.o"
 	@echo "... src/box.i"
 	@echo "... src/box.s"
@@ -303,6 +354,9 @@ help:
 	@echo "... src/parser.o"
 	@echo "... src/parser.i"
 	@echo "... src/parser.s"
+	@echo "... src/writer.o"
+	@echo "... src/writer.i"
+	@echo "... src/writer.s"
 .PHONY : help
 
 

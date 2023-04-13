@@ -13,7 +13,7 @@ public:
     std::vector<std::string> m_symbols;
     std::vector<std::string> m_resnames;
     std::vector<size_t> m_resids; 
-    real_t* m_pos; 
+    std::shared_ptr<real_t[]>m_pos;
     size_t m_natoms;
     size_t m_nmols;
     size_t m_cIDx;
@@ -27,7 +27,6 @@ public:
 
     // Methods
     MoleculeType_t(std::string,size_t);
-    /* MoleculeType_t(const MoleculeType_t&) = delete; */
     MoleculeType_t& operator=(const MoleculeType_t&) = delete;
     void get_rand_struct(); 
     void get_rand_location(real_t&,real_t&,real_t&); 
@@ -36,12 +35,9 @@ public:
 
 private: 
     size_t m_nrand_structs;
-    /* real_t* m_all_pos; */
-
     std::shared_ptr<real_t[]>m_all_pos;
-    void create_rand_structs(std::unique_ptr<real_t[]>&);
-    void find_center_atom(std::unique_ptr<real_t[]>&);
-    void write(); // For debug 
+    void create_rand_structs(const std::unique_ptr<real_t[]>&);
+    void find_center_atom(const std::unique_ptr<real_t[]>&);
 };
 
 

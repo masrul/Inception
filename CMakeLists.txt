@@ -5,19 +5,21 @@
 ######################################################################
 
 
-cmake_minimum_required(VERSION 3.0)
-set(CMAKE_C_COMPILER clang)
-# set(CMAKE_CXX_COMPILER clang++)
+cmake_minimum_required(VERSION 3.10)
+set (CMAKE_CXX_STANDARD 20)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 
 project("inception")
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Optimization flag 
 if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
-    set(CMAKE_CXX_FLAGS "-O2 -Wall  -std=c++17")
+    set(CMAKE_CXX_FLAGS "-O2 -Wall  -std=c++20")
     set(CMAKE_C_FLAGS "-g -O2")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    set(CMAKE_CXX_FLAGS "-g  -O2 -std=c++17")
+    set(CMAKE_CXX_FLAGS "-g  -O3 -std=c++20")
     set(CMAKE_C_FLAGS "-g -O2")
 endif()
 

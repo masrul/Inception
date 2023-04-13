@@ -2,6 +2,8 @@
 #ifndef TIMER_HPP
 
 #define TIMER_HPP
+
+#include <iostream>
 #include <chrono>
 #define span std::chrono::duration_cast<std::chrono::duration<double>>
 
