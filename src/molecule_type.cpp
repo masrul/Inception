@@ -9,7 +9,7 @@
 #include <limits>
 #include <cmath>
 #include <cstring>
-
+#include <algorithm>
 
 
 MoleculeType_t::MoleculeType_t(std::string file_name,size_t nmols) {
@@ -25,11 +25,13 @@ MoleculeType_t::MoleculeType_t(std::string file_name,size_t nmols) {
     m_resnames = prs.m_resnames;
     m_resids = prs.m_resids;
 
-    
     // Allocate memory for iterator
     m_pos.reset(new real_t[3*m_natoms]);
 
+    // Find center and radius of this molecule
     find_center_atom(prs.m_pos);
+
+    // Create precalculate randomly rotated molecules for speed
     create_rand_structs(prs.m_pos);
 }
 
@@ -46,7 +48,7 @@ void MoleculeType_t::create_rand_structs(const std::unique_ptr<real_t[]>& pos){
         auto beta = (2*r1-1)*pi;
         auto gamma = (2*r2-1)*pi;
         
-        const auto& local_pos = &m_all_pos[m_natoms*3*i]; 
+        const auto& local_pos = &m_all_pos[3*m_natoms*i]; 
         MathUtil::get_rot_mat(alpha,beta,gamma,rot_mat.get());
         MathUtil::matmul(pos.get(),rot_mat.get(),local_pos,m_natoms,3,3);
     }
@@ -126,9 +128,7 @@ void MoleculeType_t::get_rand_location(real_t& posx, real_t& posy, real_t& posz)
 }
 
 
-
-
-void MoleculeType_t::move_to(real_t dx, real_t dy, real_t dz){
+void MoleculeType_t::translate_to(real_t dx, real_t dy, real_t dz){
     for (auto i=0u; i<m_natoms;++i){
         m_pos[3*i] +=dx;
         m_pos[3*i+1] +=dy;

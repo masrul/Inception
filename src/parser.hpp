@@ -9,8 +9,7 @@
 
 class Parser_t {
 public: 
-    Parser_t(std::string);
-    ~Parser_t();
+    // Attribute 
     size_t m_natoms;
     std::vector<std::string> m_symbols;
     std::vector<std::string> m_resnames;
@@ -18,11 +17,14 @@ public:
     std::vector<real_t> m_x;  
     std::vector<real_t> m_y;  
     std::vector<real_t> m_z;  
-    /* real_t* m_pos; */
     std::unique_ptr<real_t[]>m_pos;
-    void print();
+    
+    // Methods 
+    Parser_t(std::string);
 
 private:
+
+    // Methods
     void parse_pdb(const std::string&);
     void parse_gro(const std::string&);
     void parse_xyz(const std::string&);

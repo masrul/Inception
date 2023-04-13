@@ -5,10 +5,12 @@
 #include "units.hpp"
 #include "parser.hpp"
 #include <cassert>
+#include <algorithm>
 
 namespace fs = std::filesystem;
 
 Parser_t::Parser_t(std::string file_name){
+
     // Get extension 
     const auto ext = fs::path(file_name).extension();
     
@@ -22,6 +24,10 @@ Parser_t::Parser_t(std::string file_name){
     else if (ext==".gro") parse_gro(file_name);
     else if (ext==".xyz") parse_xyz(file_name);
     else if (ext==".mol") parse_mol(file_name);
+
+    // Set min resid to 1
+    auto min_resid =  *min_element(m_resids.begin(), m_resids.end());
+    for (auto& resid : m_resids) resid -= (min_resid - 1);
 
 }
 
@@ -40,9 +46,7 @@ void Parser_t::parse_pdb(const std::string &file_name){
     }
     assert(m_natoms > 0);
 
-
-    // Allocate 
-    /* m_pos = new real_t[m_natoms*3]; */
+    // memory allocation for unique_ptr 
     m_pos.reset(new real_t[m_natoms*3]);
     
     // Read 
@@ -76,12 +80,17 @@ void Parser_t::parse_gro(const std::string &file_name){
     std::ifstream file{file_name};
     std::string line; 
     
+    // Find number of atoms 
     getline(file,line); 
     getline(file,line); 
     std::istringstream input(line); 
     input >> m_natoms; 
+    assert(m_natoms > 0);
+
+    // memory allocation for unique_ptr 
     m_pos.reset(new real_t[m_natoms*3]);
 
+    // Read 
     real_t xi,yi,zi;
     for (auto i=0u; i<m_natoms; ++i){
         getline(file,line); 
@@ -104,15 +113,19 @@ void Parser_t::parse_xyz(const std::string &file_name){
     std::ifstream file{file_name};
     std::string line; 
     
+    // Find number of atoms 
     getline(file,line); 
     std::istringstream input(line); 
     input >> m_natoms; 
-    getline(file,line); 
+    assert(m_natoms > 0);
 
-    std::string symbol_i; 
-    real_t xi,yi,zi;
+    // memory allocation for unique_ptr 
     m_pos.reset(new real_t[m_natoms*3]);
 
+    // Read 
+    std::string symbol_i; 
+    real_t xi,yi,zi;
+    getline(file,line); 
     for (auto i=0u; i<m_natoms; ++i){
         getline(file,line); 
         std::istringstream input(line); 
@@ -134,14 +147,19 @@ void Parser_t::parse_mol(const std::string &file_name){
     std::ifstream file{file_name};
     std::string line; 
     
+    // Find number of atoms 
     getline(file,line); 
     getline(file,line); 
     getline(file,line); 
     getline(file,line); 
     std::istringstream input(line); 
     input >> m_natoms; 
+    assert(m_natoms > 0);
+
+    // memory allocation for unique_ptr 
     m_pos.reset(new real_t[m_natoms*3]);
 
+    // Read 
     std::string symbol_i; 
     real_t xi,yi,zi;
     for (auto i=0u; i<m_natoms; ++i){
@@ -159,20 +177,4 @@ void Parser_t::parse_mol(const std::string &file_name){
     }
 
     file.close();
-}
-
-void Parser_t::print(){
-    for (auto i=0u; i<m_natoms; ++i){
-        std::cout
-        << m_symbols[i]<<" "
-        << m_resnames[i]<<" "
-        << m_resids[i]<<" "
-        << m_pos[3*i]<<" "
-        << m_pos[3*i+1]<<" "
-        << m_pos[3*i+2]<<"\n";
-    }
-}
-
-
-Parser_t::~Parser_t(){
 }

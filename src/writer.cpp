@@ -1,5 +1,3 @@
-#include "writer.hpp"
-#include "box.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -7,6 +5,9 @@
 #include "units.hpp"
 #include <cassert>
 #include <iomanip>
+#include "writer.hpp"
+#include "box.hpp"
+#include "abort.hpp"
 
 // For formatting 
 using std::setw; 
@@ -19,6 +20,7 @@ using std::endl;
 
 namespace fs = std::filesystem;
 
+// Wrapping atom and resid if excceds max allowed
 void wrap_around(size_t& num, const size_t& max_num){
     num =  (num - 1) % max_num + 1;
 }
@@ -35,9 +37,15 @@ Writer_t::Writer_t(const OBox_t& box, std::string file_name):
     preprocess();
 
     // Call appropriate parser
-    if (m_ext==".pdb") write_pdb();
-    else if (m_ext==".gro") write_gro();
-    else if (m_ext==".xyz") write_xyz();
+    if (m_ext==".pdb") 
+        write_pdb();
+    else if (m_ext==".gro") 
+        write_gro();
+    else if (m_ext==".xyz") 
+        write_xyz();
+    else 
+        inception::abort("Unsupported output file type ["+m_ext+"]!");
+    
 }
 
 void Writer_t::preprocess(){
@@ -111,7 +119,7 @@ void Writer_t::write_pdb() {
     for (size_t i=0;i < m_natoms; ++i){
         file << setw(6) << left << "ATOM";
         file << setw(5) << right << m_atomids[i]<<" ";
-        file << setw(4) << left << m_symbols[i];
+        file << setw(4) << left << m_symbols[i]<<" ";
         file << setw(3) << right << m_resnames[i]<<"  "; 
         file << setw(4) << right << m_resids[i]<<"    "; 
         file << fixed<< setw(8) << setprecision(3)<<right << m_pos[3*i];

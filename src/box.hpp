@@ -26,6 +26,11 @@ public:
     // Methods 
     OBox_t(real_t,real_t,real_t);
     OBox_t(std::string);
+    OBox_t(const OBox_t&) = delete; // disabling copy constructor
+    OBox_t(const OBox_t&&) = delete; // disabling move constructor
+    OBox_t& operator=(const OBox_t&) = delete; // disabling copy assignment 
+    OBox_t& operator=(const OBox_t&&) = delete; // disabling move assignment 
+
     void add(std::string, size_t);
     void add(std::string, size_t,real_t*);
     void pin(std::string, real_t*);
@@ -33,6 +38,11 @@ public:
     void set_max_trails(size_t);
     void pack();
     void write(std::string);
+
+    /** 
+     * Destructor is not needed, as memory allocation is handled through
+     * shared_ptr. Raw pointer is only used to point to block of memory
+    * */ 
 
 private: 
     // Attributes 
@@ -44,6 +54,7 @@ private:
     real_t m_tol2;
     std::string m_out_file;
     std::vector<size_t> m_packing_order;
+    bool m_sanity; 
 
     // Methods 
     void init_from_toml(std::string);

@@ -1,50 +1,42 @@
 [
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/abort.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/abort.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/abort.cpp",
-  "output": "CMakeFiles/inception.dir/src/abort.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/abort.cpp.o -c /Users/MasrulHuda/Inception/src/abort.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/abort.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/box.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/box.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/box.cpp",
-  "output": "CMakeFiles/inception.dir/src/box.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/box.cpp.o -c /Users/MasrulHuda/Inception/src/box.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/box.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/main.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/main.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/main.cpp",
-  "output": "CMakeFiles/inception.dir/src/main.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/main.cpp.o -c /Users/MasrulHuda/Inception/src/main.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/main.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/math_util.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/math_util.cpp",
-  "output": "CMakeFiles/inception.dir/src/math_util.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/math_util.cpp.o -c /Users/MasrulHuda/Inception/src/math_util.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/math_util.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/molecule_tracker.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/molecule_tracker.cpp",
-  "output": "CMakeFiles/inception.dir/src/molecule_tracker.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/molecule_tracker.cpp.o -c /Users/MasrulHuda/Inception/src/molecule_tracker.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/molecule_tracker.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/molecule_type.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/molecule_type.cpp",
-  "output": "CMakeFiles/inception.dir/src/molecule_type.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/molecule_type.cpp.o -c /Users/MasrulHuda/Inception/src/molecule_type.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/molecule_type.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/parser.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/parser.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/parser.cpp",
-  "output": "CMakeFiles/inception.dir/src/parser.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/parser.cpp.o -c /Users/MasrulHuda/Inception/src/parser.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/parser.cpp"
 },
 {
-  "directory": "/Users/masrulhuda/Config-Mac/Inception/build",
-  "command": "/usr/bin/clang++  -I/Users/masrulhuda/Config-Mac/Inception/./src -O2 -Wall  -std=c++20 -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/inception.dir/src/writer.cpp.o -c /Users/masrulhuda/Config-Mac/Inception/src/writer.cpp",
-  "file": "/Users/masrulhuda/Config-Mac/Inception/src/writer.cpp",
-  "output": "CMakeFiles/inception.dir/src/writer.cpp.o"
+  "directory": "/Users/MasrulHuda/Inception/build",
+  "command": "/usr/bin/clang++  -I/Users/MasrulHuda/Inception/./src -O2 -Wall  -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++20 -o CMakeFiles/inception.dir/src/writer.cpp.o -c /Users/MasrulHuda/Inception/src/writer.cpp",
+  "file": "/Users/MasrulHuda/Inception/src/writer.cpp"
 }
 ]

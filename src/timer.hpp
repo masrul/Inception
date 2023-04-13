@@ -1,4 +1,3 @@
-// Based on: https://cplusplus.com/reference/chrono/high_resolution_clock/now/
 #ifndef TIMER_HPP
 
 #define TIMER_HPP

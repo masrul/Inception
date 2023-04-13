@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
     Timer timer{};
 
     // Get toml file 
-    if (argc != 2) inception::abort("Please provide input file[.toml]!\n");
+    if (argc != 2) inception::abort("Please provide input file [.toml]!\n");
     std::string toml_file_name = argv[1];
 
     // Init Box with toml file and pack

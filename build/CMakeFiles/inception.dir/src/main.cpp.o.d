@@ -1,5 +1,5 @@
 CMakeFiles/inception.dir/src/main.cpp.o: \
-  /Users/masrulhuda/Config-Mac/Inception/src/main.cpp \
+  /Users/MasrulHuda/Inception/src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/cstdlib \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config \
@@ -17,7 +17,7 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/machine/_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_pthread/_pthread_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/wait.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_pid_t.h \
@@ -25,13 +25,13 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/appleapiopts.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/machine/signal.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/machine/_mcontext.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/mach/machine/_structs.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/mach/arm/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/mach/i386/_structs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/machine/types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_int8_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_int16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_int32_t.h \
@@ -60,11 +60,10 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/_types/_uintmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_timeval.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/machine/endian.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/libkern/_OSByteOrder.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/libkern/arm/OSByteOrder.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/arch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/libkern/i386/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/alloca.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_ct_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_rune_t.h \
@@ -73,7 +72,7 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/malloc/_malloc.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_mode_t.h \
-  /Users/masrulhuda/Config-Mac/Inception/./src/abort.hpp \
+  /Users/MasrulHuda/Inception/./src/abort.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/version \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/ios \
@@ -372,8 +371,8 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/machine/limits.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/limits.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/_limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/i386/_limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/syslimits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__chrono/high_resolution_clock.h \
@@ -732,13 +731,13 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
-  /Users/masrulhuda/Config-Mac/Inception/./src/box.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/real_type.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/molecule_type.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/molecule_tracker.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/timer.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/parser.hpp \
+  /Users/MasrulHuda/Inception/./src/box.hpp \
+  /Users/MasrulHuda/Inception/./src/real_type.hpp \
+  /Users/MasrulHuda/Inception/./src/molecule_type.hpp \
+  /Users/MasrulHuda/Inception/./src/molecule_tracker.hpp \
+  /Users/MasrulHuda/Inception/./src/timer.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/parser.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/filesystem \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -758,26 +757,26 @@ CMakeFiles/inception.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/sstream \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/combinator.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/region.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/color.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/result.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/traits.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/from.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/into.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/version.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/combinator.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/region.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/color.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/result.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/traits.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/from.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/into.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/version.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/forward_list \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/utility.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/lexer.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/types.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/comments.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/datetime.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/string.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/value.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/exception.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/source_location.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/storage.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/literal.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/serializer.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/get.hpp \
-  /Users/masrulhuda/Config-Mac/Inception/./src/extern/toml11/toml/macros.hpp
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/utility.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/lexer.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/types.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/comments.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/datetime.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/string.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/value.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/exception.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/source_location.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/storage.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/literal.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/serializer.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/get.hpp \
+  /Users/MasrulHuda/Inception/./src/extern/toml11/toml/macros.hpp

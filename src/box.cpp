@@ -15,6 +15,8 @@
 #include "extern/toml11/toml.hpp"
 #include "timer.hpp"
 
+enum {RANDOM,PINNED}; // Packing type 
+
 OBox_t::OBox_t(real_t lx, real_t ly, real_t lz): 
     m_lx{lx},
     m_ly{ly},
@@ -33,7 +35,6 @@ OBox_t::OBox_t(real_t lx, real_t ly, real_t lz):
     m_rand_seed=time(0); // not a good random number, but we don't need good randomness
     srand(m_rand_seed);
 }
-
 
 OBox_t::OBox_t(std::string toml_file_name){
     m_natoms = 0;
@@ -56,7 +57,6 @@ void OBox_t::set_max_trails(size_t max_trails){
     m_max_trails = max_trails;
 }
 
-
 void OBox_t::add(std::string file_name, size_t nmols){
 
     // Add mol_type 
@@ -70,6 +70,9 @@ void OBox_t::add(std::string file_name, size_t nmols){
     mol_type.m_ymax = m_ly;
     mol_type.m_zmin = 0;
     mol_type.m_zmax = m_lz;
+
+    // set is pinned 
+    mol_type.m_is_pinned = false;
 
     ++m_nmol_types;
 }
@@ -89,6 +92,9 @@ void OBox_t::add(std::string file_name, size_t nmols,real_t* bounds){
     mol_type.m_zmin = bounds[4];
     mol_type.m_zmax = bounds[5];
 
+    // set is pinned 
+    mol_type.m_is_pinned = false;
+
     ++m_nmol_types;
 }
 
@@ -97,14 +103,17 @@ void OBox_t::pin(std::string file_name, real_t* loc){
     // Add mol_type 
     m_mol_types.emplace_back(file_name,static_cast<size_t>(1));
     
-    // set bounds 
+    // set bounds, for pinned, max==min 
     auto& mol_type = m_mol_types[m_nmol_types];
     mol_type.m_xmin = loc[0];
-    mol_type.m_xmax = loc[1];
+    mol_type.m_xmax = loc[0];
     mol_type.m_ymin = loc[1];
     mol_type.m_ymax = loc[1];
     mol_type.m_zmin = loc[2];
     mol_type.m_zmax = loc[2];
+
+    // set is pinned 
+    mol_type.m_is_pinned = false;
 
     ++m_nmol_types;
 }
@@ -117,7 +126,7 @@ void OBox_t::pack(){
         m_nmols += mol_type.m_nmols;
     }
 
-    // Allocate memroy for position 
+    // Allocate memroy for position (shared_ptr)
     m_pos.reset(new real_t[m_natoms*3]);
 
     // Set progressbar for packing 
@@ -127,12 +136,11 @@ void OBox_t::pack(){
     bar.set_opening_bracket_char("[");
     bar.set_closing_bracket_char("]");
 
-
     // Loop over mol_types and pack 
     size_t natoms_inserted = 0; 
     real_t posx,posy,posz;
     std::cout<<"Inception::packing\n";
-    rank_packing();
+    rank_packing(); // ranking such that larger molecules go first! 
 
     for (auto& mol_type_id : m_packing_order){
         auto& mol_type = m_mol_types[mol_type_id];
@@ -146,14 +154,13 @@ void OBox_t::pack(){
                 // Get random struct from precalculated rotation
                 mol_type.get_rand_struct(); 
                 
-
-                // Move to posx,posy,posz 
-                mol_type.move_to(posx,posy,posz);
-
+                // Translate molecule to posx,posy,posz 
+                mol_type.translate_to(posx,posy,posz);
 
                 // check overlap 
                 auto overlap = check_overlap(mol_type); 
 
+                // If passed, save to global memory
                 if (!overlap){
                     //copy to global pos 
                     mol_type.copy_to(&m_pos[3*natoms_inserted]);
@@ -172,17 +179,17 @@ void OBox_t::pack(){
 
             if (!success){
                 inception::abort(
-                    "\nCan not pack, increase num_trails or box size!\n"
+                    "\nCan not pack, increase max_trails or box size!\n"
                 );
             }
         }
     }
 
-    std::cout<<"\n"; // clear progressbar
-    
+    // celaning progressbar
+    std::cout<<"\n";
 
-    // Sanity check 
-    sanity_check();
+    // Sanity check (debugging purpose only, user does not need to check) 
+    if (m_sanity) sanity_check();
 
     // write to file 
     write(m_out_file);
@@ -227,12 +234,15 @@ bool OBox_t::check_overlap(MoleculeType_t& i_mol_type){
             }
         }
     }
-
     return overlap;
 }
 
-
 void OBox_t::apply_pbc(real_t& dx, real_t& dy, real_t& dz){
+/** 
+ * "while" is used instead of "if"
+ * As, larger molecule might be longer than half of  box length!
+**/
+
     // dx 
     while (dx > m_hlx) dx -=m_lx;
     while (dx < -m_hlx) dx +=m_lx;
@@ -246,6 +256,28 @@ void OBox_t::apply_pbc(real_t& dx, real_t& dy, real_t& dz){
     while (dz < -m_hlz) dz +=m_lz;
 }
 
+void OBox_t::rank_packing(){
+    std::vector<size_t> scores; 
+    size_t max_natoms = std::numeric_limits<size_t>::min(); 
+ 
+    // Score is proportional to natoms
+    for (const auto& mol_type : m_mol_types){
+        const auto& natoms = mol_type.m_natoms; 
+        scores.push_back(natoms); 
+        if (natoms > max_natoms) max_natoms = natoms;
+    }
+    
+    // To set higher prioprity of pinned molecules, add max_natoms to them 
+    for (auto i=0u; i < scores.size();++i){
+        if (m_mol_types[i].m_is_pinned){
+            scores[i] +=max_natoms;
+        }
+    }
+
+    // sort them based on index
+    m_packing_order = MathUtil::argsort(scores);
+}
+
 void OBox_t::write(std::string file_name){
     Writer_t writer{*this,file_name};
 }
@@ -253,13 +285,14 @@ void OBox_t::write(std::string file_name){
 void OBox_t::sanity_check(){
     
     const auto nmols = m_mol_trackers.size(); 
-
-    std::cout<<"\nInception::sanity_check\n";
+    
+    // Set progressbar for sanity check 
     progressbar bar(nmols-1);
     bar.set_todo_char(" ");
     bar.set_done_char("█");
     bar.set_opening_bracket_char("[");
     bar.set_closing_bracket_char("]");
+    std::cout<<"\nInception::sanity_check\n";
 
     real_t dx,dy,dz,dist2;
     real_t rmin = std::numeric_limits<real_t>::max(); 
@@ -289,36 +322,35 @@ void OBox_t::sanity_check(){
         std::cout<<"\nSanity check failed with rmin:"<< sqrt(rmin)<<"\n";
     }
     else { 
-        std::cout<<"\nSanity check passed!\n";
+        std::cout<<"\n\nSanity check passed!\n";
     }
 }
 
-void OBox_t::rank_packing(){
-    std::vector<size_t> scores; 
-    size_t max_natoms = std::numeric_limits<size_t>::min(); 
- 
-    for (const auto& mol_type : m_mol_types){
-        const auto& natoms = mol_type.m_natoms; 
-        scores.push_back(natoms); 
-        if (natoms > max_natoms) max_natoms = natoms;
-    }
-    m_packing_order = MathUtil::argsort(scores);
-}
+
 
 void OBox_t::init_from_toml(std::string toml_file_name){
-
 
     const auto input = toml::parse(toml_file_name);
 
     // config section 
     if (input.contains("config")){
         const auto& config = toml::find(input, "config");
+        
+        // Get tol 
         auto tol = toml::find_or<real_t>(config, "tolerance", 2.0);
         set_tol(tol);
-        /* m_tol2= m_tol*m_tol; */
+
+        // Get max_trails, default is 10000
         m_max_trails = toml::find_or<size_t>(config, "max_trail", 10000);
+
+        // Get rand_seed, default is time(0)
         m_rand_seed = toml::find_or<size_t>(config, "rand_seed", time(0));
+
+        // Get output file for coordinates 
         m_out_file = toml::find_or<std::string>(config, "out_file","out.pdb");
+
+        // Get sanity check flag, (debug only)
+        m_sanity = toml::find_or<bool>(config, "check_sanity",false);
     }
     else {
         inception::abort("[config] section missing\n");    
@@ -331,10 +363,13 @@ void OBox_t::init_from_toml(std::string toml_file_name){
 
     if (input.contains("box")){
         const auto& box = toml::find(input, "box");
+
+        // Get box limit 
         box_xlim = toml::find<std::vector<real_t>>(box, "xlim");  
         box_ylim = toml::find<std::vector<real_t>>(box, "ylim");  
         box_zlim = toml::find<std::vector<real_t>>(box, "zlim");  
-
+        
+        // Check if input is sane 
         assert (box_xlim.size() == 2 && box_xlim[1] > box_xlim[0]);
         assert (box_ylim.size() == 2 && box_ylim[1] > box_ylim[0]);
         assert (box_zlim.size() == 2 && box_zlim[1] > box_zlim[0]);
@@ -342,11 +377,13 @@ void OBox_t::init_from_toml(std::string toml_file_name){
     else {
         inception::abort("[box] section missing\n");    
     }
-
+    
+    // Set box length 
     m_lx = box_xlim[1] - box_xlim[0];
     m_ly = box_ylim[1] - box_ylim[0];
     m_lz = box_zlim[1] - box_zlim[0];
-
+    
+    // Set half of box length for PBC 
     m_hlx = 0.5f*m_lx;
     m_hly = 0.5f*m_ly;
     m_hlz = 0.5f*m_lz;
@@ -354,62 +391,44 @@ void OBox_t::init_from_toml(std::string toml_file_name){
 
     // Packing section  
     if (input.contains("packing")){
-        const auto& packing = toml::find(input, "packing");
+        const auto& packings = toml::find(input, "packing");
 
-        // Pinned packing 
-        if(packing.contains("pinned")){
-            const auto& packing_pinneds =  toml::find(packing,"pinned");
-
-            for (auto i=0u; i< packing_pinneds.size();++i){
-                const auto& packing_pinned = packing_pinneds[i];
-
-                // Get file 
-                assert(packing_pinned.contains("file"));
-                auto mol_file =  toml::find<std::string>(packing_pinned,"file");
-
-                // Get pinned location  
-                std::vector<real_t> loc;
-                if (packing_pinned.contains("location")){
-                    loc = toml::find<std::vector<real_t>>(packing_pinned, "location"); 
-                }
-
-                // Set to class
-                assert(loc.size() == 3);
-                this->pin(mol_file,loc.data());
+        for (auto i=0; i < packings.size();++i){
+            const auto& packing = packings[i];
+            
+            // Get packing type 
+            size_t packing_type=RANDOM; 
+            if (packing.contains("location")){
+                packing_type = PINNED;
             }
-        }
-
-        // Random packing 
-        if(packing.contains("random")){
-            const auto& packing_randoms =  toml::find(packing,"random");
-
-            for (auto i=0u; i< packing_randoms.size();++i){
-                const auto& packing_random = packing_randoms[i];
-                
+            
+            // parse according to type 
+            if (packing_type == RANDOM) { 
+                    
                 // Get file 
-                assert(packing_random.contains("file"));
-                auto mol_file =  toml::find<std::string>(packing_random,"file");
+                assert(packing.contains("file"));
+                auto mol_file =  toml::find<std::string>(packing,"file");
 
                 // Get nmols 
-                assert(packing_random.contains("nitems"));
-                auto nmols =  toml::find<size_t>(packing_random,"nitems");
+                assert(packing.contains("nitems"));
+                auto nmols =  toml::find<size_t>(packing,"nitems");
 
                 // Get xlim  
                 std::vector<real_t> mol_xlim=box_xlim;
-                if (packing_random.contains("xlim")){
-                    mol_xlim = toml::find<std::vector<real_t>>(packing_random, "xlim"); 
+                if (packing.contains("xlim")){
+                    mol_xlim = toml::find<std::vector<real_t>>(packing, "xlim"); 
                 }
 
                 // Get ylim  
                 std::vector<real_t> mol_ylim=box_ylim;
-                if (packing_random.contains("ylim")){
-                    mol_ylim = toml::find<std::vector<real_t>>(packing_random, "ylim"); 
+                if (packing.contains("ylim")){
+                    mol_ylim = toml::find<std::vector<real_t>>(packing, "ylim"); 
                 }
                
                 // Get zlim  
                 std::vector<real_t> mol_zlim=box_zlim;
-                if (packing_random.contains("zlim")){
-                    mol_zlim = toml::find<std::vector<real_t>>(packing_random, "zlim"); 
+                if (packing.contains("zlim")){
+                    mol_zlim = toml::find<std::vector<real_t>>(packing, "zlim"); 
                 }
 
                 assert (mol_xlim.size() == 2 && mol_xlim[1] > mol_xlim[0]);
@@ -427,14 +446,26 @@ void OBox_t::init_from_toml(std::string toml_file_name){
 
                 this->add(mol_file,nmols,bounds);
             }
+
+            else if (packing_type==PINNED){ 
+                // Get file 
+                assert(packing.contains("file"));
+                auto mol_file =  toml::find<std::string>(packing,"file");
+
+                // Get pinned location  
+                std::vector<real_t> loc;
+                if (packing.contains("location")){
+                    loc = toml::find<std::vector<real_t>>(packing, "location"); 
+                }
+
+                assert(loc.size() == 3);
+
+                // Set to class
+                this->pin(mol_file,loc.data());
+            }
         }
     }
     else {
-        inception::abort("[packing] section missing\n");    
-    }
-
-    // Check atleast one packing element is requested 
-    if (m_mol_types.size() == 0){
-        inception::abort("Please provide atleast one moleule to pack\n");    
+        inception::abort("[[packing]] section is  missing\n");    
     }
 }

@@ -24,13 +24,14 @@ public:
     real_t m_xmax;
     real_t m_ymax;
     real_t m_zmax;
+    bool m_is_pinned; 
 
     // Methods
     MoleculeType_t(std::string,size_t);
     MoleculeType_t& operator=(const MoleculeType_t&) = delete;
     void get_rand_struct(); 
     void get_rand_location(real_t&,real_t&,real_t&); 
-    void move_to(real_t,real_t,real_t);
+    void translate_to(real_t,real_t,real_t);
     void copy_to(real_t*);
 
 private: 
