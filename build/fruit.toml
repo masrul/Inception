@@ -1,5 +1,0 @@
-[fruit]
-name = "apple"
-[fruit.physical]
-color = "red"
-shape = "round"
