@@ -137,8 +137,16 @@ Here is an example of pinning a macromolecule into the center of a box.
 
 </p>
 
+**Notes:** 
+
++ **Bold** options are required. 
++ [[packing]] section has double square brakets. 
++ [toml11](https://github.com/ToruNiina/toml11) expects floating point number has decimal point. 
++ If **location** keyword presents in [[packing]], pinned insertion is assumed. 
+
 ## Performance benchmark 
-**Inception** is typically extremely fast for larger molecule. But for small molecules (natoms <= 3), packmol is faster. 
+**Inception** is typically extremely fast for larger molecule. But for small molecules (natoms <= 3), packmol is faster. Benchmark is carried out in macbook pro M2 and both software is compiled with gcc-11, and **-O** optimization flag. Plots are showing time required to complete packing (smaller is better). 
+ 
 
 **Case-1:** Packing interface as shown in Fig-2. Inception is order of magnitude faster than packmol. 
 
@@ -207,7 +215,6 @@ end structure
     xlim = [0.0,200.0]
     ylim = [0.0,200.0]
     zlim = [0.0,200.0]
-
 
 [[packing]]
     file="water.pdb"
@@ -280,7 +287,7 @@ end structure
 </p>
 
 ## Upcoming features
-+ Supporting triclinic box
++ Supporting triclinic box.
 + Python bindings for easy workflow using pybind11. 
 + Solvating protein in dodecahedron box with pre-equilibrated solvent. 
 + Building membrane.  
