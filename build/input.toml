@@ -1,0 +1,44 @@
+[config]
+    tolerance = 3.0
+    rand_seed = 675490
+    max_trails = 1000
+    out_file = "out3.pdb"
+    check_sanity = true
+
+[box] 
+    xlim = [0.0,200.0]
+    ylim = [0.0,200.0]
+    zlim = [0.0,300.0]
+
+
+# [[packing]]
+#     file="fmoc.pdb"
+#     nitems = 2000 
+
+[[packing]]
+    file="octane.pdb"
+    nitems = 10000 
+    zlim = [0.0,200.0]
+
+[[packing]]
+    file="water.pdb"
+    nitems = 10000 
+    zlim = [200.0,300.0]
+
+# [[packing]]
+#     file="water.pdb"
+#     nitems = 20 
+
+# [[packing]]
+#     file="protein.pdb"
+#     location = [50.0,50.0,50.0]
+
+# [[packing]]
+#     file="benzene.pdb"
+#     nitems = 1 
+#     zlim = [0.0,50.0]
+
+# [[packing]]
+#     file="2-methyl-propanol.mol"
+#     nitems = 20 
+

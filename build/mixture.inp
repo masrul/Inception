@@ -1,0 +1,33 @@
+#
+# A mixture of water and urea
+#
+
+tolerance 3.0
+filetype pdb
+output mixture.pdb
+
+structure ./octane.pdb
+  number 10000
+  inside box 0. 0. 0. 200. 200. 200. 
+end structure
+
+# structure ./benzene.pdb
+#   number 1000 
+#   inside box 0. 0. 101. 202. 202. 202. 
+# end structure
+
+# structure ./water.pdb
+#   number 50000
+#   inside box 0. 0. 0. 400. 400. 400. 
+# end structure
+
+# structure ./protein.pdb
+#   number 1 
+#   center 
+#   fixed 200. 200. 200. 0. 0. 0.
+# end structure
+
+# structure ./water.pdb
+#   number 20000
+#   inside box 0. 0. 0. 150. 150. 150. 
+# end structure
