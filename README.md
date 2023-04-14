@@ -108,7 +108,7 @@ Using the packing limit, we can restrict molecular packing to certain region. Fo
 + **file** = Coordinate file of molecule [gro, pdb, xyz, and mol].
 + **location** = Where to pin the center-of-mass. 
 
-User can pinned the center-of-mass of molecule into the certain location. 
+User can pin the center-of-mass of molecule into the certain location. 
 Here is an example of pinning a macromolecule into the center of a box.
 
 ```toml 
