@@ -1,12 +1,12 @@
 # Inception : A moleuclar packing tool, faster and periodic
 
-This is a molecular packing software similar to Packmol. But it is aimed to be faster, and obey PBC. 
+A molecular packing tool similar to widely popular packmol. But, it is aimed to be faster, and obey periodic boundary conditions. 
 
 ## Table of contents 
 - [Installation](#installation)
 - [How to use](#how-to-use)
-- [Performance](#performance)
-- [Upcoming features](#up-coming-features)
+- [Performance benchmark](#performance-benchmark)
+- [Upcoming features](#upcoming-features)
 - [Credits](#credits)
 
 ## Installation 
@@ -137,7 +137,7 @@ Here is an example of pinning a macromolecule into the center of a box.
 
 </p>
 
-## Performance Benchmark 
+## Performance benchmark 
 **Inception** is typically extremely fast for larger molecule. But for small molecules (natoms <= 3), packmol is faster. 
 
 **Case-1:** Packing interface as shown in Fig-2. Inception is order of magnitude faster than packmol. 
@@ -282,7 +282,7 @@ end structure
 ## Upcoming features
 + Supporting triclinic box
 + Python bindings for easy workflow using pybind11. 
-+ Solvating protein in dodecahedron box. 
++ Solvating protein in dodecahedron box with pre-equilibrated solvent. 
 + Building membrane.  
 
 
@@ -290,5 +290,5 @@ end structure
 Following third party libraries are used to parsing and progressbar. 
  
 + [toml11](https://github.com/ToruNiina/toml11) for parsing user input. 
-+ [progressbar] (https://github.com/gipert/progressbar) for showing progressbar. 
++ [progressbar](https://github.com/gipert/progressbar) for showing progressbar. 
 
