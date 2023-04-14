@@ -23,7 +23,7 @@ make && make install
 ## How to use 
 **toml** file is used to interact with the tool. 
 
-A simple example toml file to pack 5000 water molecules into 100 $\AA$
+A simple example toml file to pack 5000 water molecules into 100 angstrom cubic box. Fig-1 shows the packing. 
  
 ```toml 
 [config]
@@ -40,9 +40,25 @@ A simple example toml file to pack 5000 water molecules into 100 $\AA$
     nitems = 5000
 ```
 
+**toml** file mainly has three sections, 
+
++ [config]
+	+ tolerance = minimium distance between atoms 
+	+ out_file = coordinate file to write output, currently gro,pdb and xyz is supported 
+	+ max_trails = Maximum number of trails to insert a molecules, default is 1000 
+	+ rand_seed = Seed for random number, default is based on OS time. 
+
++ [box] 
+	+ xlim = Limit of box edge along $X$ direction 
+	+ ylim = Limit of box edge along $Y$ direction 
+	+ zlim = Limit of box edge along $Z$ direction 
++ [[packing]]
+
+
+
 
 <p align="center">
-  <img width="400" height="400" src="images/pack_water.jpg">
+  <img width="300" height="300" src="images/pack_water.jpg">
   <br>
   Fig-1: Packing 5000 water molecules using Inception.
 </p>
