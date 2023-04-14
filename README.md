@@ -5,7 +5,8 @@ This is a molecular packing software similar to Packmol. But it is aimed to be f
 ## Table of contents 
 - [Installation](#installation)
 - [How to use](#how-to-use)
-- 
+- [Performance](#performance)
+
 ## Installation 
 #### Requirement: 
 + A modern C++ compiler (C++-17) and 
@@ -93,7 +94,7 @@ Using the packing limit, we can restrict molecular packing to certain region. Fo
 ```
 
 <p align="center">
-  <img width="300" height="300" src="images/interface.jpg">
+  <img width="300" height="400" src="images/interface.jpg">
   <br>
   Fig-2: Creating interface between water and decane. 
 </p>
@@ -135,8 +136,7 @@ Here is an example of pinning a macromolecule into the center of a box.
 </p>
 
 ## Performance Benchmark 
-**Inception** is typically extremely fast for larger molecule, 
-(Under construction)
+**Inception** is typically extremely fast for larger molecule. But for small molecules (natoms <= 3), packmol is faster. 
 
 **Case-1:** Packing interface as shown in Fig-2. Inception is order of magnitude faster than packmol. 
 
@@ -190,4 +190,91 @@ end structure
   <img width="500" src="images/interface_perf.jpg">
   <br>
 </p>
+
+**Case-2:**  Packing 20000 water into 200 angstrom cubic box. For smaller molecule, packmol is still a faster option. 
+
+<details>
+<summary>Inception input file</summary>
+
+```toml 
+[config]
+    tolerance = 3.0
+    out_file = "out.gro"
+
+[box]
+    xlim = [0.0,200.0]
+    ylim = [0.0,200.0]
+    zlim = [0.0,200.0]
+
+
+[[packing]]
+    file="water.pdb"
+    nitems = 20000
+```
+</details>
+
+<details>
+<summary>Packmol input file</summary>
+
+```
+tolerance 3.0
+filetype pdb
+output out_packmol.pdb
+
+structure ./water.pdb
+  number 20000
+  inside box 0. 0. 0. 200. 200. 200.
+end structure
+```
+
+</details>
+
+<p align="center">
+  <img width="500" src="images/water_perf.jpg">
+  <br>
+</p>
+
+**Case-3:**  Packing a very large molecule, which has 65 atoms per molecule. Here, Inception is blazing fast :fire: !
+
+<details>
+<summary>Inception input file</summary>
+
+```toml 
+[[config]
+    tolerance = 3.0
+    out_file = "out.gro"
+
+[box]
+    xlim = [0.0,300.0]
+    ylim = [0.0,300.0]
+    zlim = [0.0,300.0]
+
+[[packing]]
+    file="fmoc.pdb"
+    nitems = 5000
+```
+</details>
+
+<details>
+<summary>Packmol input file</summary>
+
+```
+tolerance 3.0
+filetype pdb
+output out_packmol.pdb
+
+structure ./fmoc.pdb
+  number 5000
+  inside box 0. 0. 0. 300. 300. 300.
+end structure
+
+```
+
+</details>
+
+<p align="center">
+  <img width="500" src="images/fmoc_perf.jpg">
+  <br>
+</p>
+
 
