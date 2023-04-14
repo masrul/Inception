@@ -4,7 +4,8 @@ This is a molecular packing software similar to Packmol. But it is aimed to be f
 
 ## Table of contents 
 - [Installation](#installation)
-
+- [How to use](#how-to-use)
+- 
 ## Installation 
 #### Requirement: 
 + A modern C++ compiler (C++-17) and 
@@ -132,4 +133,61 @@ Here is an example of pinning a macromolecule into the center of a box.
   Fig-3: Pinning Lignin into a box full of water.  
 
 </p>
+
+## Performance Benchmark 
+**Inception** is typically extremely fast for larger molecule, 
 (Under construction)
+
+**Case-1:** Packing interface as shown in Fig-2. Inception is order of magnitude faster than packmol. 
+
+<details>
+<summary>Inception input file</summary>
+
+```toml 
+[config]
+    tolerance = 3.0
+    out_file = "out.gro"
+
+[box]
+    xlim = [0.0,150.0]
+    ylim = [0.0,150.0]
+    zlim = [0.0,200.0]
+
+[[packing]]
+    file="water.pdb"
+    nitems = 10000
+    zlim = [0.0,100.0]
+
+[[packing]]
+    file="decane.gro"
+    nitems = 2000
+    zlim = [100.0,200.0]
+```
+</details>
+
+<details>
+<summary>Packmol input file</summary>
+
+```
+tolerance 3.0
+filetype pdb
+output out_packmol.pdb
+
+structure ./water.pdb
+  number 5000
+  inside box 0. 0. 0. 150. 150. 100.
+end structure
+
+structure ./decane.pdb
+  number 2000
+  inside box 0. 0. 100. 150. 150. 200.
+end structure
+```
+
+</details>
+
+<p align="center">
+  <img width="500" src="images/interface_perf.jpg">
+  <br>
+</p>
+
