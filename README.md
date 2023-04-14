@@ -6,6 +6,8 @@ This is a molecular packing software similar to Packmol. But it is aimed to be f
 - [Installation](#installation)
 - [How to use](#how-to-use)
 - [Performance](#performance)
+- [Upcoming features](#up-coming-features)
+- [Credits](#credits)
 
 ## Installation 
 #### Requirement: 
@@ -67,8 +69,8 @@ There are two types of packing supported currently,
 	+ **file** = Coordinate file of molecule [gro, pdb, xyz, and mol]. 
 	+ **nitems** = Number of molecules. 
 	+ xlim = Limit molecule center along $X$ direction. 
-	+ ylim = Limit molecule center along $X$ direction.
-	+ zlim = Limit molecule center along $X$ direction. 
+	+ ylim = Limit molecule center along $Y$ direction.
+	+ zlim = Limit molecule center along $Z$ direction. 
 
 Using the packing limit, we can restrict molecular packing to certain region. For example, we can create interface of water and decane. 
 
@@ -240,7 +242,7 @@ end structure
 <summary>Inception input file</summary>
 
 ```toml 
-[[config]
+[config]
     tolerance = 3.0
     out_file = "out.gro"
 
@@ -277,4 +279,16 @@ end structure
   <br>
 </p>
 
+## Upcoming features
++ Supporting triclinic box
++ Python bindings for easy workflow using pybind11. 
++ Solvating protein in dodecahedron box. 
++ Building membrane.  
+
+
+## Credits
+Following third party libraries are used to parsing and progressbar. 
+ 
++ [toml11](https://github.com/ToruNiina/toml11) for parsing user input. 
++ [progressbar] (https://github.com/gipert/progressbar) for showing progressbar. 
 

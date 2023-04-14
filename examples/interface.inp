@@ -1,0 +1,17 @@
+#
+# A mixture of water and urea
+#
+
+tolerance 3.0
+filetype pdb
+output out_packmol.pdb
+
+structure ./water.pdb
+  number 10000
+  inside box 0. 0. 0. 150. 150. 100. 
+end structure
+
+structure ./decane.pdb
+  number 2000
+  inside box 0. 0. 100. 150. 150. 200. 
+end structure

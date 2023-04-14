@@ -1,0 +1,19 @@
+[config]
+    tolerance = 3.0
+    out_file = "out.gro"
+
+[box] 
+    xlim = [0.0,150.0]
+    ylim = [0.0,150.0]
+    zlim = [0.0,200.0]
+
+
+[[packing]]
+    file="water.pdb"
+    nitems = 10000 
+    zlim = [0.0,100.0]
+
+[[packing]]
+    file="decane.gro"
+    nitems = 2000 
+    zlim = [100.0,200.0]

@@ -1,0 +1,9 @@
+tolerance 3.0
+filetype pdb
+output out_packmol.pdb
+
+structure ./fmoc.pdb
+  number 5000
+  inside box 0. 0. 0. 300. 300. 300. 
+end structure
+

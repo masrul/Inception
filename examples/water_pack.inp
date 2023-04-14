@@ -1,0 +1,9 @@
+tolerance 3.0
+filetype pdb
+output out_packmol.pdb
+
+structure ./water.pdb
+  number 20000
+  inside box 0. 0. 0. 200. 200. 200. 
+end structure
+
