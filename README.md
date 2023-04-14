@@ -287,7 +287,7 @@ end structure
 
 
 ## Credits
-Following third party libraries are used to parsing and progressbar. 
+Following third party libraries are used for parsing and progressbar. 
  
 + [toml11](https://github.com/ToruNiina/toml11) for parsing user input. 
 + [progressbar](https://github.com/gipert/progressbar) for showing progressbar. 
