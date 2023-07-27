@@ -1,4 +1,4 @@
-# Inception : A moleuclar packing tool, faster and periodic
+# Inception : A molecular packing tool; faster and periodic
 
 A molecular packing tool similar to widely popular packmol. But, it is aimed to be faster, and obey periodic boundary conditions. 
 
