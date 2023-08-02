@@ -26,6 +26,9 @@ make && make install
 
 ## How to use 
 **toml** file is used to interact with the tool. 
+```bash
+inception input.toml
+```
 
 A simple example toml file to pack 5000 water molecules into 100 angstrom cubic box. Fig-1 shows the packing. 
  
